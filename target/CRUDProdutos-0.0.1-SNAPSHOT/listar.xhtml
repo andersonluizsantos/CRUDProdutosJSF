@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	
+	>
+
+<h:head>
+	<title>Lista de Produtos</title>
+</h:head>
+<h:body>
+	
+	<h1>Excluindo com DataTable e Command Link</h1>
+	<h:form>
+		<h3>Lista de Produtos</h3>
+	
+		<h:dataTable value="#{produtoBean.produtos}" var="produto">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{produto.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				#{produto.preco}
+			</h:column>
+			<h:column>
+	   			<f:facet name="header">Link</f:facet>
+	   			<h:commandLink value="Delete" action="#{produtoBean.excluirProdutoPorId(produto, produto.id)}" />
+	   		</h:column>	   				
+		</h:dataTable>
+	</h:form>
+	<br/>
+	
+	<h1>Excluindo com UI Repeat commandButton</h1>
+	<hr></hr>
+	<h:form>
+		<ol>
+			<ui:repeat var="item" value="#{produtoBean.produtos}">
+				<li>
+				#{item.nome} - #{item.preco}
+				<h:commandButton value="excluir" action="#{produtoBean.excluir}">
+					<f:setPropertyActionListener value="#{item}" target="#{produtoBean.produtoSelecionado}"/>
+				</h:commandButton>
+				</li>
+				
+			</ui:repeat>
+		</ol>
+	</h:form>
+	
+	
+
+</h:body>
+</html>

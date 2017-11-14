@@ -1,0 +1,3 @@
+com\fuctura\modelo\Produto.class
+com\fuctura\bean\ProdutoBean.class
+com\fuctura\util\JpaUtil.class
