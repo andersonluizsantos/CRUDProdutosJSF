@@ -8,9 +8,18 @@
 <h:head>
 	<title>Cadastro de Produtos</title>
 </h:head>
+
+
+
 <h:body>
-	<h3>Cadastro de Produtos</h3>
 	<h:form>
+		Menu:
+		<br/> 
+		<h:commandLink value="Cadastro de Produtos" action="cadastro?faces-redirect=true"/>
+		<br/>
+		<h:commandLink value="Listagem de Produtos" action="listar?faces-redirect=true"/>
+		<br/>
+		<br/>
 		<h:panelGrid columns="2" >
 			<h:outputLabel value="Nome: " />
 			<h:inputText value="#{produtoBean.nome}"/>
